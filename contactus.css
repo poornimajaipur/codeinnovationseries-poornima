@@ -1,0 +1,22 @@
+#linkbar{
+    width: auto;
+    height:100px ;
+    text-align: center;
+    font-size: large;
+    background-color: #151b29;
+}
+
+.navlink{
+    color: aqua;
+    font-family: Nerko One, cursive;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.navlink:hover{
+    border-color: #f1ff5c;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    transform: translatey(-0.25em);
+    cursor:grab ;
+}
