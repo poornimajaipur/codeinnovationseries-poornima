@@ -83,7 +83,6 @@ def login():
 				session['logged_in'] = True
 				session['full_name'] = user[1]
 				session['user_id'] = user[0]
-				session['role'] = user[-5]
 				flash(f"Welcome {session['full_name']}!! Your Login is Successful", 'success')
 			else:
 				cur.close()
@@ -115,9 +114,10 @@ def project(id):
         commentors.append(cur.fetchone())
     collaborators = []
     for coll in colls:
-        cur.execute("SELECT full_name, registration_number FROM profile WHERE user_id={};".format(coll[1]))
+        cur.execute("SELECT full_name, registration_number, user_id FROM profile WHERE user_id={};".format(coll[1]))
         collaborators.append(cur.fetchone())
     cur.close()
+    print(collaborators)
     return render_template('colab.html', project=info, user=user_info, comments=comments, commentors=commentors, collaborators=collaborators)
 
 @app.route('/project/<int:id>/collaborate/<user_id>/')
