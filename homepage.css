@@ -1,0 +1,49 @@
+#linkbar{
+    width: auto;
+    height:100px ;
+    text-align: center;
+    font-size: large;
+    background-color: #151b29;
+}
+
+.navlink{
+    color: aqua;
+    font-family: 'JetBrains Mono', monospace;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.navlink:hover{
+    border-color: #f1ff5c;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    transform: translatey(-0.25em);
+    cursor:grab ;
+}
+
+#content{
+    background-color: #FAEDCA;
+    height:  fit-content;
+    width: auto;
+    
+}
+
+
+
+
+.news{
+    width: 27%;
+    margin: 1.5%;
+
+    display: inline-block;
+    border: solid black 2px;
+    height: fit-content;
+    
+}
+
+img{
+    width: 80%;
+    height: 200px;
+    padding: 5% 5%;
+    
+}
