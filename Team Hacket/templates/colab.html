@@ -1,0 +1,107 @@
+{% include 'block.html' %}{% block subcontent %}
+<style>
+    .fa {
+        font-size: 40px;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .fa:hover {
+        color: darkblue;
+    }
+    
+    .form-outer {
+        margin: 10px;
+        padding: 0 10px 10px 10px;
+    }
+    
+    .panel {
+        width: 100%!important;
+    }
+</style>
+
+<body>
+
+    <div class="form-outer">
+        <h2 class="text-center text-capitalize">{{project[1]}}</h2>
+        <!--title-->
+
+        <h3>{{project[2]}}</h3>
+        <!--Description -->
+
+        <hr>
+        <!-- Date&Time-->
+        <div>
+            <i><h4 class="text-dark">Idea By: <a href="/profile/{{user[1]}}/">{{user[0]}}</a></h4> <!-- porject holder--></i>
+            <h4>Batch: {{user[2]}}</h4>
+            <!-- Batch-->
+        </div>
+        </hr>
+
+        <hr> {% if session['logged_in'] == True %}
+        <a class="btn btn-success btn-rounded btn-lg" href="collaborate/{{session['user_id']}}/">Collab</a> {% else %}
+        <a class="btn btn-success btn-rounded btn-lg" href="/login/">Log In to Collab</a> {% endif %}
+
+        </hr>
+
+
+        <!-- Comment box code start-->
+
+
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-default widget">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-comment"></span>
+                        <h3 class="panel-title">
+                            Collaborators
+                        </h3>
+                        {% for collaborator in collaborators %}
+                        <ul>
+                            <li>
+                                <a href="/profile/{{collaborator[1]}}/">
+                                    <h3>{{collaborator[0]}}</h3>
+                                </a>
+                            </li>
+                        </ul> {% endfor %}
+                    </div>
+                    <hr>
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-comment"></span>
+                        <h3 class="panel-title">
+                            Recent Comments</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            {% for comment in comments %}
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-10 col-md-11">
+                                        <div>
+                                            <h1 class="text-capitalize"><b>{{comment[0]}}</b></h1>
+                                            <div class="mic-info">
+                                                By: <a class="text-capitalize" href="/profile/{{commentors[loop.index0][1]}}/">{{commentors[loop.index0][0]}}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <form action="comment/" method="POST">
+                            <textarea class="panel" placeholder="Type Your Comment" name="content" id="content"></textarea>
+                            <input type="submit" class="btn btn-primary" value="Post">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Comment box code end-->
+
+        </hr>
+
+    </div>
+
+</body>
+{% endblock %}
