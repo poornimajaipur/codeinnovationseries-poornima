@@ -1,6 +1,6 @@
 {% include 'block.html' %} {% block style %}
 <style type="text/css">
-    .login-img {
+        .login-img {
         background: url('https://kit8.net/images/thumbnails/580/386/detailed/4/Girl_and_computer@2x.png');
         background-position: center;
         min-height: 90vh;
@@ -25,11 +25,21 @@
     label {
         font-size: 25px;
     }
+    
+    @media screen and (max-width: 500px) {
+        .login-img {
+            visibility: hidden;
+        }
+        .login-card {
+            position: absolute;
+            top: 15%;
+            left: 5px;
+        }
 </style>
 {% endblock %}
 <div class="row">
     <div class="login-img col-7"></div>
-    <div class="login-card card col-4">
+    <div class="login-card card col-lg-4 col-sm-12">
         <div class="header">
             <h3>LOGIN</h3>
         </div>

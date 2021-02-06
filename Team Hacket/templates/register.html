@@ -24,11 +24,23 @@
     label {
         font-size: 15px;
     }
+    
+    @media screen and (max-width: 500px) {
+        .login-img {
+            visibility: hidden;
+        }
+        .login-card {
+            position: absolute;
+            top: 15%;
+            left: 5px;
+            ;
+        }
+    }
 </style>
 {% endblock %} {% block subcontent %}
 <div class="row">
     <div class="login-img col-7"></div>
-    <div class="login-card card col-4">
+    <div class="login-card card col-lg-4 col-sm-12">
         <div class="header">
             <h3>REGISTER</h3>
         </div>
@@ -36,12 +48,12 @@
             <form action="/register/" method="POST">
                 <div class="row">
                     <div class="col-6 mt-4 ">
-                        <label for="full_name">Enter Full Name</label>
+                        <label for="full_name"> Full Name</label>
                         <input type="text" class="form-control" name="full_name" id="full_name" placeholder="Full Name" required>
                     </div>
 
                     <div class="col-6 mt-4 ">
-                        <label for="email">Enter Poornima Email</label>
+                        <label for="email"> Poornima Email</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                     </div>
 
@@ -57,22 +69,22 @@
                     </div>
 
                     <div class="col-6 mt-4 ">
-                        <label for="registration_number">Enter Registration Number</label>
+                        <label for="registration_number"> Registration Number</label>
                         <input type="text" class="form-control" name="registration_number" id="registration_number" placeholder="Registration Number" required>
                     </div>
 
                     <div class="col-12 mt-4 ">
-                        <label for="skills">Enter Skills</label>
+                        <label for="skills"> Skills</label>
                         <textarea class="form-control" name="skills" id="skills" placeholder="Separate with Comma (,)" required></textarea>
                     </div>
 
                     <div class="col-6 mt-4 ">
-                        <label for="linkedin">Enter Linkedin URL</label>
+                        <label for="linkedin"> Linkedin URL</label>
                         <input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="LinkedIn URL" required>
                     </div>
 
                     <div class="col-6 mt-4 ">
-                        <label for="github">Enter Github URL</label>
+                        <label for="github"> Github URL</label>
                         <input type="text" class="form-control" name="github" id="github" placeholder="Github URL" required>
                     </div>
 
@@ -89,8 +101,7 @@
 
                 <input type="submit" class="btn btn-primary mt-3 w-100" value="Register">
                 <div class="row mt-4">
-                    <a href="#" class="btn btn-danger col-5 m-auto">Forgot Password?</a>
-                    <a href="/login" class="btn btn-dark col-5 m-auto">Account Exists? Login</a>
+                    <a href="/login" class="btn btn-dark col-12 m-auto">Account Exists? Login</a>
                 </div>
             </form>
         </div>
