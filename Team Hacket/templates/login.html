@@ -1,0 +1,60 @@
+{% include 'block.html' %} {% block style %}
+<style type="text/css">
+        .login-img {
+        background: url('https://kit8.net/images/thumbnails/580/386/detailed/4/Girl_and_computer@2x.png');
+        background-position: center;
+        min-height: 90vh;
+    }
+    
+    .login-card {
+        margin-top: 30px;
+        background-color: #75aaff;
+        box-shadow: 0 15px 50px #6ba4ff;
+        max-height: 80vh;
+        border-radius: 25px;
+    }
+    
+    .header h3 {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 60px;
+        color: #1c1c11;
+        /*text-shadow: 0 8px 14px black;*/
+    }
+    
+    label {
+        font-size: 25px;
+    }
+    
+    @media screen and (max-width: 500px) {
+        .login-img {
+            visibility: hidden;
+        }
+        .login-card {
+            position: absolute;
+            top: 15%;
+            left: 5px;
+        }
+</style>
+{% endblock %}
+<div class="row">
+    <div class="login-img col-7"></div>
+    <div class="login-card card col-lg-4 col-sm-12">
+        <div class="header">
+            <h3>LOGIN</h3>
+        </div>
+        <form action="/login/" method="POST">
+            <div class="card-body mt-5">
+                <label for="email">Enter Poornima Email</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+
+                <label for="password" class="mt-3">Enter Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+
+                <input type="submit" class="btn btn-primary mt-3 w-100">Login
+                <div class="row mt-4">
+                    <a href="#" class="btn btn-danger col-5 m-auto">Forgot Password?</a>
+                    <a href="/register" class="btn btn-dark col-5 m-auto">New Here? Register</a>
+                </div>
+            </div>
+        </form>
